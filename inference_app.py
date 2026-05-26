@@ -3,12 +3,12 @@ import requests
 import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification
 
-# Model details
+
 MODEL_NAME = "distilbert-base-uncased-finetuned-sst-2-english"
 MODEL_URL = "https://huggingface.co/distilbert-base-uncased/resolve/main/pytorch_model.bin"
 MODEL_FILE = "pytorch_model.bin"
 
-# Download model file if not exists
+
 if not os.path.exists(MODEL_FILE):
     print("Downloading model file...")
     
@@ -23,7 +23,7 @@ if not os.path.exists(MODEL_FILE):
 else:
     print("Model file already exists.")
 
-# Load tokenizer and model
+
 print("Loading tokenizer and model...")
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
@@ -31,7 +31,7 @@ model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
 
 print("Model loaded successfully!\n")
 
-# Example sentences
+
 sentences = [
     "I love this product!",
     "This movie was terrible.",
@@ -39,13 +39,13 @@ sentences = [
     "I am very disappointed."
 ]
 
-# Bonus: User input
+
 user_input = input("Enter your own sentence (or press Enter to skip): ")
 
 if user_input.strip():
     sentences.append(user_input)
 
-# Sentiment prediction
+
 labels = ["NEGATIVE", "POSITIVE"]
 
 for sentence in sentences:
