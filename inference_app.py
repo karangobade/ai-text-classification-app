@@ -23,7 +23,7 @@ if not os.path.exists(MODEL_FILE):
 else:
     print("Model file already exists.")
 
-
+# Load tokenizer and model
 print("Loading tokenizer and model...")
 
 tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
@@ -31,7 +31,7 @@ model = AutoModelForSequenceClassification.from_pretrained(MODEL_NAME)
 
 print("Model loaded successfully!\n")
 
-
+# Example sentences
 sentences = [
     "I love this product!",
     "This movie was terrible.",
@@ -45,7 +45,7 @@ user_input = input("Enter your own sentence (or press Enter to skip): ")
 if user_input.strip():
     sentences.append(user_input)
 
-
+# Sentiment prediction
 labels = ["NEGATIVE", "POSITIVE"]
 
 for sentence in sentences:
